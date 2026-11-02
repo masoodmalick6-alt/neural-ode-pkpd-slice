@@ -1,65 +1,79 @@
-# Neural ODE PK/PD Slice
+# Neural ODE PK/PD, multi-drug branch
 
-A small, honest slice of a bigger idea: predict drug sensitivity from gene
-expression with a neural network that outputs pharmacokinetic/pharmacodynamic
-(PK/PD) parameters, which then run through a differentiable ordinary
-differential equation (ODE) to produce a tumour response curve.
+Gene expression plus a drug fingerprint goes into a neural encoder. The
+encoder outputs PK/PD parameters (clearance, growth, kill), a
+differentiable ODE solver turns them into tumour curves, and the
+day-30 tumour size is mapped to the GDSC drug-response endpoint.
 
-Built by Masood Ur Rehman, MSc Drug Discovery and Development student at
-Uppsala University, Pharmacist (PharmD) working on AI for drug discovery.
+## What is honest here
 
-## The idea in one paragraph
-
-Gene expression goes into a small neural encoder. The encoder outputs PK/PD
-parameters (clearance and tumour growth rate). Those parameters drive a
-one-compartment drug model plus logistic tumour growth with drug kill, solved
-with a differentiable ODE solver. On fake patients the encoder recovers hidden
-parameters almost exactly. On real GDSC data it predicts Erlotinib sensitivity
-better than a Ridge baseline on held-out cell lines.
-
-## Notebooks
-
-- `phase0_setup.ipynb` — install torchdiffeq and check the setup.
-- `phase1_ode.ipynb` — the ODE alone, no neural net: concentration and tumour
-  curves, change clearance by hand.
-- `phase2_encoder.ipynb` — fake patients: the encoder recovers hidden
-  clearance and growth from genes alone.
-- `phase3_real_data.ipynb` — real data: GDSC Erlotinib response plus Sanger
-  merged RNA-seq expression.
+- GDSC gives ONE endpoint per cell line (log IC50), not a measured
+  time course. The curves are the model's internal predictions.
+- The random-pair main split leaks: the same cell lines and drugs
+  appear in train and test, so its numbers are inflated.
+- The leave-one-drug-out (LODO) folds are the honest metric: a
+  held-out drug was never seen in training.
+- The erlotinib treated curves are digitised by eye from a published
+  figure (see below), approximate to about +/-0.15 cm3, means only.
 
 ## Results
 
-- Phase 2 (fake patients, 200 lines): guessed vs true clearance correlation
-  0.995, growth 0.995.
-- Phase 3 (real data, 392 cell lines, 79 held out): Neural ODE test
-  correlation 0.404, Ridge baseline test correlation 0.322. Train
-  correlation 0.875.
+Single-drug slice (Erlotinib only, Phase 3): Neural ODE test
+correlation 0.404 vs Ridge 0.322. The mechanistic model beats Ridge
+on held-out cell lines.
 
-## Honest scope
+Multi-drug conditional encoder (77 drugs, 67,927 pairs, 945 models):
 
-- GDSC gives one endpoint number per cell line (log IC50), not a measured
-  time course. The ODE curves in this slice are the model's internal
-  predictions, not measured curves.
-- The ODE runs at one fixed teaching dose; what varies per cell line is
-  clearance and growth from expression.
-- This is a prototype and teaching project, not a validated clinical tool
-  and not a treatment predictor.
-- Data files are not in this repo (too big). The Phase 3 notebook downloads
-  them itself:
-  - GDSC1 fitted dose response (Sanger FTP)
-  - Sanger merged RNA-seq (Cell Model Passports)
-- Expression source note: the DepMap portal is bot-walled and GDSC's own
-  basal-expression file is retired, so Phase 3 uses Sanger's merged RNA-seq
-  file, which combines Sanger and Broad (CCLE) data with Sanger preferred
-  where a model was analysed twice, matched to GDSC by model ID.
+| Split | Neural ODE corr / RMSE | Ridge corr / RMSE |
+|---|---|---|
+| Main, random pairs (leaky) | 0.685 / 1.891 | 0.881 / 1.229 |
+| LODO Erlotinib | 0.240 / 3.036 | 0.198 / 1.518 |
+| LODO Trametinib | -0.168 / 4.257 | 0.153 / 2.893 |
+| LODO Cisplatin | 0.132 / 1.148 | 0.513 / 0.988 |
 
-## Run it
+Verdict: on unseen drugs the multi-drug encoder does NOT beat Ridge
+yet. Erlotinib is roughly tied on correlation but worse on error,
+Trametinib fails outright, Cisplatin is worse on both. Loss plateaued
+around 3-4.5 (vs 0.303 in the single-drug phase), suggesting
+undertraining at 300 steps per fold and/or a single shared endpoint
+head that is too rigid across drug mechanisms.
 
-Colab (CPU is fine) or a local Python environment with torch, torchdiffeq,
-pandas, scikit-learn and matplotlib. Phase 0 checks the setup; each notebook
-runs top to bottom.
+Time series (real curves, separate notebooks on main):
+- Untreated Zenodo curves: LM2-4LUC forecast corr 0.770 (286 held-out
+  points), LLC forecast corr 0.352 (91 points). Longer curves forecast
+  decently, short fast curves poorly.
+- Erlotinib xenograft, digitised: full fit corr 0.978-0.996; kill
+  0.0844/day at 4 mg/kg vs 0.1120/day at 50 mg/kg, dose ordering holds;
+  forecast corr 0.798-0.989, with the late control surge
+  underestimated.
 
-## Next steps
+## Files
 
-Multi-drug integration and fitting to true time-series data (small
-literature xenograft sets) are the planned research-prototype steps.
+- `data_loader.py` — GDSC1 + Sanger TPM + PubChem SMILES/fingerprints.
+  Top-500 variable genes selected on train models only; row indexing
+  by position (never expand duplicated model ids over all genes).
+- `ode_engine.py` — one-compartment drug + logistic growth minus kill,
+  RK4 via torchdiffeq, single bolus and dosed variants.
+- `conditional_encoder.py` — drug MLP (2048-128-64) + encoder
+  (564-64-3) with the soft bounded tanh mapping for CL, growth, kill.
+- `train_lodo.py` — main split + LODO training with Ridge baselines.
+- `erlotinib_digitised_fig2E.csv` — digitised means from Wu et al.,
+  Acta Pharmacologica Sinica 2013, Figure 2E (SPC-A-1 xenografts,
+  n=5 per group, daily erlotinib, every 48 h). Estimates, not measured
+  data.
+
+## Run
+
+    python train_lodo.py
+
+Expects `data/` next to the scripts with
+`GDSC1_fitted_dose_response_24Jul22.csv`,
+`rnaseq_merged_rsem_tpm_20260323.csv` and `drug_smiles.csv`.
+
+## Data sources
+
+- GDSC1 fitted dose responses, Sanger FTP current release.
+- Sanger merged RNA-seq TPM (Sanger + Broad/CCLE), cog.sanger.ac.uk.
+- PubChem PUG REST for SMILES; RDKit Morgan fingerprints, radius 2,
+  2048 bits. Six internal tool codes had no resolvable structure and
+  were dropped from the fingerprint model.
