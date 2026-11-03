@@ -1,0 +1,10 @@
+day,vehicle_mm3,fu_mm3,note
+0,100,100,orig day 10; first measurement after randomisation (day 7)
+5,120,150,orig day 15
+10,450,250,orig day 20
+15,880,500,orig day 25
+20,1130,900,orig day 30
+25,1810,1350,orig day 35
+30,2190,1670,orig day 40
+35,,1900,orig day 45
+40,,2470,orig day 50

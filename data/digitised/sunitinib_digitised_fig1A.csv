@@ -1,0 +1,17 @@
+day,group,volume_mm3
+0,control,108
+4,control,143
+8,control,197
+12,control,225
+16,control,245
+20,control,273
+24,control,293
+28,control,330
+0,sunitinib,115
+4,sunitinib,97
+8,sunitinib,83
+12,sunitinib,58
+16,sunitinib,45
+20,sunitinib,38
+24,sunitinib,33
+28,sunitinib,32

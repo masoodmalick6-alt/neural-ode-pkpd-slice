@@ -1,0 +1,9 @@
+day,control_rel,cyclo100_rel,note
+0,1.0,1.0,treatment start day 18 post-implant re-zeroed
+4,2.2,1.1,log-axis read
+8,3.9,0.32,log-axis read
+12,6.2,0.17,log-axis read
+17,16.0,0.04,log-axis read
+21,26.0,0.011,treated point at axis floor 0.01
+25,33.0,,control only
+29,42.0,,control only

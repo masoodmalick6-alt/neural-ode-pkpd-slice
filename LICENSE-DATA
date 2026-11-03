@@ -1,0 +1,16 @@
+Data licence: CC BY 4.0
+
+The data in data/ (the digitised tumour-volume numbers and the 30-row
+table in rows30.csv) is licensed under the Creative Commons Attribution
+4.0 International licence (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+You may share and adapt the data for any purpose, provided you give
+appropriate credit: cite this repository and the source papers listed
+per row in data/rows30.csv. The digitised numbers are estimates read
+from published figures, not the original authors' measured data; do not
+present them as such.
+
+No published figures, author manuscripts or supplementary files from
+the source papers are included in this repository, and this licence
+does not grant any rights in those works.

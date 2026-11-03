@@ -1,0 +1,6 @@
+day,control,erlotinib,note
+0,0.28,0.25,axis units as printed; scale-invariant fit
+7,0.40,0.34,weekly point
+14,0.59,0.17,weekly point
+21,0.75,0.12,weekly point
+28,1.00,0.09,weekly point; treated curve regresses

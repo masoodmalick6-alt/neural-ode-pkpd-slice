@@ -1,0 +1,10 @@
+day,control,bendamustine,note
+0,230,210,day 14 post-inoculation re-zeroed to day 0
+4,310,190,day 18
+7,460,190,day 21
+10,900,300,day 24
+14,1900,360,day 28; control ends here
+18,,680,day 32
+21,,1050,day 35
+24,,1680,day 38
+27,,2430,day 41

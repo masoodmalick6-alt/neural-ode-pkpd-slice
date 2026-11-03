@@ -1,0 +1,13 @@
+day,group,volume_mm3
+0,control,35
+9,control,200
+14,control,265
+19,control,390
+0,gefitinib_daily,30
+9,gefitinib_daily,160
+14,gefitinib_daily,175
+19,gefitinib_daily,260
+0,gefitinib_weekly,30
+9,gefitinib_weekly,35
+14,gefitinib_weekly,55
+19,gefitinib_weekly,70

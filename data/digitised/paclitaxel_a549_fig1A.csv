@@ -1,0 +1,10 @@
+day,saline_rtv,paclitaxel24_rtv,note
+0,1.0,1.0,treatment start (tumours 100-300 mm3)
+4,1.35,1.25,twice-weekly measurement
+7,1.85,1.05,twice-weekly measurement
+11,2.2,1.05,twice-weekly measurement
+14,3.0,1.05,"twice-weekly measurement; matches Table II day-14 RTV (saline 3.3, pac24 1.0)"
+18,4.0,0.85,twice-weekly measurement
+21,5.0,1.05,twice-weekly measurement
+25,5.8,1.6,twice-weekly measurement
+28,6.2,1.5,twice-weekly measurement

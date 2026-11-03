@@ -1,0 +1,17 @@
+day,group,volume_mm3
+0,control,200
+4,control,320
+7,control,420
+11,control,525
+14,control,535
+18,control,710
+21,control,775
+24,control,960
+0,docetaxel,200
+4,docetaxel,300
+7,docetaxel,315
+11,docetaxel,400
+14,docetaxel,375
+18,docetaxel,450
+21,docetaxel,365
+24,docetaxel,465

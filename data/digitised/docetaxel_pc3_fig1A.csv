@@ -1,0 +1,9 @@
+day,control_cm3,doc10_cm3,note
+0,0.05,0.08,week 4 re-zeroed to day 0; treatment start
+7,0.15,0.18,week 5
+14,0.29,0.13,week 6
+21,0.56,0.14,week 7; last Doc injection
+28,0.89,0.13,week 8
+35,1.37,0.16,week 9; control ends here
+42,,0.26,week 10
+49,,0.42,week 11; Doc 10 ends here

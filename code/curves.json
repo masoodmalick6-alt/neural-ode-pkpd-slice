@@ -1,0 +1,402 @@
+{
+ "erlotinib_spca1": {
+  "file": "data/digitised/erlotinib_spca1_fig2E.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control_cm3",
+   "erlotinib4": "erlotinib4_cm3",
+   "erlotinib50": "erlotinib50_cm3"
+  },
+  "row_kill": "mean",
+  "row_arms": [
+   "erlotinib4",
+   "erlotinib50"
+  ]
+ },
+ "hnscc_A": {
+  "file": "data/digitised/hnscc_digitised_fig1.csv",
+  "format": "long",
+  "time_col": "week",
+  "group_col": "group",
+  "value_col": "relative_volume",
+  "arms": {
+   "control": "control",
+   "fu": "5-FU"
+  },
+  "filter": {
+   "arm": "A"
+  },
+  "time_unit": "week",
+  "row_kill": "single",
+  "row_arm": "fu"
+ },
+ "hnscc_B": {
+  "file": "data/digitised/hnscc_digitised_fig1.csv",
+  "format": "long",
+  "time_col": "week",
+  "group_col": "group",
+  "value_col": "relative_volume",
+  "arms": {
+   "control": "control",
+   "paclitaxel": "paclitaxel",
+   "cisplatin": "cisplatin"
+  },
+  "filter": {
+   "arm": "B"
+  },
+  "time_unit": "week",
+  "row_kill": "single",
+  "row_arm": "paclitaxel"
+ },
+ "cis_hno97_2phase": {
+  "file": "data/digitised/hnscc_digitised_fig1.csv",
+  "format": "long",
+  "time_col": "week",
+  "group_col": "group",
+  "value_col": "relative_volume",
+  "arms": {
+   "control": "control",
+   "cisplatin": "cisplatin"
+  },
+  "filter": {
+   "arm": "B"
+  },
+  "time_unit": "week",
+  "two_phase": {
+   "switch": 3
+  },
+  "row_kill": "single",
+  "row_arm": "cisplatin"
+ },
+ "gem_sw1990": {
+  "file": "data/digitised/gemcitabine_table1.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control",
+   "gemcitabine": "gemcitabine_50mgkg"
+  },
+  "row_kill": "single",
+  "row_arm": "gemcitabine"
+ },
+ "sorafenib_0606": {
+  "file": "data/digitised/sorafenib_digitised_fig1B.csv",
+  "format": "long",
+  "time_col": "day",
+  "group_col": "group",
+  "value_col": "volume_mm3",
+  "arms": {
+   "control": "vehicle",
+   "sorafenib50": "sorafenib50",
+   "sorafenib100": "sorafenib100"
+  },
+  "filter": {
+   "line": "06-0606"
+  },
+  "row_kill": "mean",
+  "row_arms": [
+   "sorafenib50",
+   "sorafenib100"
+  ]
+ },
+ "sorafenib_100505": {
+  "file": "data/digitised/sorafenib_digitised_fig1B.csv",
+  "format": "long",
+  "time_col": "day",
+  "group_col": "group",
+  "value_col": "volume_mm3",
+  "arms": {
+   "control": "vehicle",
+   "sorafenib50": "sorafenib50",
+   "sorafenib100": "sorafenib100"
+  },
+  "filter": {
+   "line": "10-0505"
+  },
+  "row_kill": "mean",
+  "row_arms": [
+   "sorafenib50",
+   "sorafenib100"
+  ]
+ },
+ "dox_ht29": {
+  "file": "data/digitised/doxorubicin_digitised_fig4.csv",
+  "format": "long",
+  "time_col": "day",
+  "group_col": "group",
+  "value_col": "volume_mm3",
+  "arms": {
+   "control": "saline",
+   "dox": "free_dox"
+  },
+  "row_kill": "single",
+  "row_arm": "dox"
+ },
+ "tmz_pdox": {
+  "file": "data/digitised/temozolomide_digitised_fig2.csv",
+  "format": "long",
+  "time_col": "day",
+  "group_col": "group",
+  "value_col": "relative_volume",
+  "arms": {
+   "control": "control",
+   "temozolomide": "temozolomide"
+  },
+  "row_kill": "single",
+  "row_arm": "temozolomide"
+ },
+ "cyclo_fibro": {
+  "file": "data/digitised/cyclophosphamide_digitised_fig1C.csv",
+  "format": "long",
+  "time_col": "day",
+  "group_col": "group",
+  "value_col": "volume_cm3",
+  "arms": {
+   "control": "untreated",
+   "cyclophosphamide": "cyclophosphamide"
+  },
+  "time_shift": 6,
+  "row_kill": "single",
+  "row_arm": "cyclophosphamide"
+ },
+ "oxa_ct26": {
+  "file": "data/digitised/oxaliplatin_digitised_fig4A.csv",
+  "format": "long",
+  "time_col": "day",
+  "group_col": "group",
+  "value_col": "volume_mm3",
+  "arms": {
+   "control": "control",
+   "oxaliplatin": "oxaliplatin"
+  },
+  "time_shift": 7,
+  "row_kill": "single",
+  "row_arm": "oxaliplatin"
+ },
+ "sun_468": {
+  "file": "data/digitised/sunitinib_digitised_fig1A.csv",
+  "format": "long",
+  "time_col": "day",
+  "group_col": "group",
+  "value_col": "volume_mm3",
+  "arms": {
+   "control": "control",
+   "sunitinib": "sunitinib"
+  },
+  "row_kill": "single",
+  "row_arm": "sunitinib"
+ },
+ "doc_du145": {
+  "file": "data/digitised/docetaxel_digitised_fig5A.csv",
+  "format": "long",
+  "time_col": "day",
+  "group_col": "group",
+  "value_col": "volume_mm3",
+  "arms": {
+   "control": "control",
+   "docetaxel": "docetaxel"
+  },
+  "row_kill": "single",
+  "row_arm": "docetaxel"
+ },
+ "epi_mda231": {
+  "file": "data/digitised/epirubicin_digitised_fig6A.csv",
+  "format": "long",
+  "time_col": "day",
+  "group_col": "group",
+  "value_col": "volume_mm3",
+  "arms": {
+   "control": "control",
+   "epirubicin": "epirubicin"
+  },
+  "row_kill": "single",
+  "row_arm": "epirubicin"
+ },
+ "gef_h3255": {
+  "file": "data/digitised/gefitinib_digitised_fig3C.csv",
+  "format": "long",
+  "time_col": "day",
+  "group_col": "group",
+  "value_col": "volume_mm3",
+  "arms": {
+   "control": "control",
+   "gefitinib_daily": "gefitinib_daily"
+  },
+  "row_kill": "single",
+  "row_arm": "gefitinib_daily"
+ },
+ "paz_l9981": {
+  "file": "data/digitised/pazopanib_digitised_fig2B.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control_mm3",
+   "pazopanib": "pazopanib_mm3"
+  },
+  "row_kill": "single",
+  "row_arm": "pazopanib"
+ },
+ "benda_dohh2_2phase": {
+  "file": "data/digitised/bendamustine_digitised_fig1A.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control_mm3",
+   "bendamustine": "bendamustine_mm3"
+  },
+  "two_phase": {
+   "switch": 8
+  },
+  "row_kill": "single",
+  "row_arm": "bendamustine"
+ },
+ "cis_a549": {
+  "file": "data/digitised/cisplatin_a549_table1.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control_mm3",
+   "cisplatin": "cisplatin_mm3"
+  },
+  "row_kill": "single",
+  "row_arm": "cisplatin"
+ },
+ "fu_hct116": {
+  "file": "data/digitised/fu_hct116_fig6A.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "vehicle_mm3",
+   "fu": "fu_mm3"
+  },
+  "row_kill": "single",
+  "row_arm": "fu"
+ },
+ "gem_panc1": {
+  "file": "data/digitised/gem_panc1_fig7B.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control_mm3",
+   "gemcitabine": "gemcitabine_mm3"
+  },
+  "row_kill": "single",
+  "row_arm": "gemcitabine"
+ },
+ "sun_786o_2phase": {
+  "file": "data/digitised/sunitinib_786o_fig6E.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control_mm3",
+   "sunitinib": "sunitinib_mm3"
+  },
+  "two_phase": {
+   "switch": 21
+  },
+  "row_kill": "single",
+  "row_arm": "sunitinib"
+ },
+ "dox_mcf7": {
+  "file": "data/digitised/dox_mcf7_fig4A.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "saline_mm3",
+   "dox": "dox_mm3"
+  },
+  "row_kill": "single",
+  "row_arm": "dox"
+ },
+ "tmz_u87_postlag": {
+  "file": "data/digitised/tmz_u87_fig6E.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "untreated_mm3",
+   "tmz": "tmz_mm3"
+  },
+  "day_min": 18,
+  "time_shift": 18,
+  "row_kill": "single",
+  "row_arm": "tmz"
+ },
+ "pac_a549": {
+  "file": "data/digitised/paclitaxel_a549_fig1A.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "saline_rtv",
+   "paclitaxel": "paclitaxel24_rtv"
+  },
+  "row_kill": "single",
+  "row_arm": "paclitaxel"
+ },
+ "paz_a549": {
+  "file": "data/digitised/paz_a549_fig3B.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control_mm3",
+   "pazopanib": "pazopanib_mm3"
+  },
+  "row_kill": "single",
+  "row_arm": "pazopanib"
+ },
+ "oxa_hct116": {
+  "file": "data/digitised/oxa_hct116_fig2A.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control_fold",
+   "oxaliplatin": "oxaliplatin_fold"
+  },
+  "row_kill": "single",
+  "row_arm": "oxaliplatin"
+ },
+ "erl_bxpc3": {
+  "file": "data/digitised/erlotinib_bxpc3_fig3A.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control",
+   "erlotinib": "erlotinib"
+  },
+  "row_kill": "single",
+  "row_arm": "erlotinib"
+ },
+ "cyclo_mx1": {
+  "file": "data/digitised/cyclo_mx1_fig4.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control_rel",
+   "cyclophosphamide": "cyclo100_rel"
+  },
+  "row_kill": "single",
+  "row_arm": "cyclophosphamide"
+ },
+ "benda_ramos": {
+  "file": "data/digitised/benda_ramos_fig1B.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control",
+   "bendamustine": "bendamustine"
+  },
+  "row_kill": "single",
+  "row_arm": "bendamustine"
+ },
+ "doc_pc3": {
+  "file": "data/digitised/docetaxel_pc3_fig1A.csv",
+  "format": "wide",
+  "time_col": "day",
+  "arms": {
+   "control": "control_cm3",
+   "docetaxel": "doc10_cm3"
+  },
+  "row_kill": "single",
+  "row_arm": "docetaxel"
+ }
+}

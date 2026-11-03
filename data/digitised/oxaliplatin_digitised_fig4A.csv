@@ -1,0 +1,9 @@
+day,group,volume_mm3
+7,control,60
+21,control,470
+35,control,1120
+7,oxaliplatin,60
+21,oxaliplatin,240
+35,oxaliplatin,470
+49,oxaliplatin,1030
+63,oxaliplatin,1500

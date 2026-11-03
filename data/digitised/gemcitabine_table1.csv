@@ -1,0 +1,17 @@
+day,group,volume_cm3,volume_se
+0,control,0.14,0.09
+3,control,0.26,0.13
+6,control,0.43,0.18
+9,control,0.56,0.23
+12,control,0.66,0.23
+15,control,0.80,0.10
+18,control,1.01,0.12
+21,control,1.25,0.09
+0,gemcitabine_50mgkg,0.13,0.07
+3,gemcitabine_50mgkg,0.23,0.10
+6,gemcitabine_50mgkg,0.32,0.14
+9,gemcitabine_50mgkg,0.44,0.14
+12,gemcitabine_50mgkg,0.57,0.12
+15,gemcitabine_50mgkg,0.72,0.10
+18,gemcitabine_50mgkg,0.91,0.12
+21,gemcitabine_50mgkg,1.16,0.08

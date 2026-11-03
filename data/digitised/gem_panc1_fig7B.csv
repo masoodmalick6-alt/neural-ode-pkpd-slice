@@ -1,0 +1,9 @@
+day,control_mm3,gemcitabine_mm3,note
+0,85,90,treatment start
+7,120,75,weekly measurement
+14,120,160,weekly measurement
+21,210,160,weekly measurement
+28,215,160,weekly measurement
+35,450,195,weekly measurement
+42,470,180,weekly measurement
+47,505,300,harvest 1 week after 40-day schedule

@@ -1,0 +1,9 @@
+day,control_mm3,sunitinib_mm3,note
+0,215,210,wk4; sunitinib/saline start (tumours ~200 mm3)
+7,240,195,wk5
+14,255,190,wk6
+21,275,170,wk7
+28,275,185,wk8
+35,290,195,wk9
+42,310,210,wk10
+49,375,245,"wk11; cabozantinib switch point, window ends here"
